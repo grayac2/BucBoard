@@ -1,0 +1,78 @@
+#:kivy 1.10.0
+<AddRoomWidget>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: root.width / 8, root.height / 8
+        canvas.before:
+            Color:
+                rgba: 0.016, 0.118, 0.259, 1.0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        GridLayout:
+            id: form_layout
+            cols: 2
+            spacing: 10
+
+            #Toggle buttons to specify type of Room.
+
+            ToggleButton:
+                id: classRoomTypeToggleButton
+                text: 'Classroom'
+                group: 'type'
+                state: 'down'
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+
+            ToggleButton:
+                id: officeRoomTypeToggleButton
+                text: 'Office'
+                group: 'type'
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+
+            #Room Number Label/TextInput
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Room Number'
+                font_size: '25sp'
+
+            TextInput:
+                id: roomNumberTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_classroom()
+
+            #Building Label/Spinner
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Building'
+                font_size: '25sp'
+
+        BoxLayout:
+            #Submit Button
+            Button:
+                id: submitButton
+                text: "Create Room"
+                font_size: '30sp'
+                size_hint: (1, None)
+                height: 50
+                background_normal: ''
+                background_color: 1, .78, .17, 1
+                color: 0, 0, 0, 1
+                on_press: root.submit_new_classroom()
+

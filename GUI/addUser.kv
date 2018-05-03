@@ -1,0 +1,91 @@
+#:kivy 1.10.0
+<AddUserWidget>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: root.width / 8, root.height / 8
+        canvas.before:
+            Color:
+                rgba: 0.016, 0.118, 0.259, 1.0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        GridLayout:
+            id: form_layout
+            cols: 2
+            spacing: 10
+
+            ToggleButton:
+                id: adminTypeToggleButton
+                text: 'Admin'
+                group: 'type'
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+
+            ToggleButton:
+                id: professorTypeToggleButton
+                text: 'Professor'
+                group: 'type'
+                state: 'down'
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Last Name'
+                font_size: '25sp'
+            TextInput:
+                id: userLastName
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_user()
+
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'First Name'
+                font_size: '25sp'
+            TextInput:
+                id: userFirstName
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_user()
+
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                size_hint_min_x: 195
+                text: 'Office Number'
+                font_size: '25sp'
+
+
+        BoxLayout:
+            # Submit Button - Within BoxLayout to take up entire row
+            Button:
+                id: submitButton
+                text: "Create User"
+                font_size: '30sp'
+                size_hint: (1, None)
+                height: 50
+                background_normal: ''
+                background_color: 1, .78, .17, 1
+                color: 0, 0, 0, 1
+                on_press: root.submit_new_user()

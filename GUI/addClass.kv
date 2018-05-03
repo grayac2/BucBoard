@@ -1,0 +1,152 @@
+#:kivy 1.10.0
+<AddClassWidget>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: root.width / 8, root.height / 8
+        canvas.before:
+            Color:
+                rgba: 0.016, 0.118, 0.259, 1.0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        GridLayout:
+            id: form_layout
+            cols: 2
+            spacing: 10
+
+            # Class Name Label/Input
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Class Name'
+                font_size: '25sp'
+            TextInput:
+                id: classNameTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_classroom()
+
+            # Classroom Label/Input - change to Drop-Down from Room Info in database
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                size_hint_min_x: 260
+                text: 'Classroom Number'
+                font_size: '25sp'
+            Spinner:
+                id: classRoomTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                values: root.room_list
+
+            # CRN Number Label/Input
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'CRN'
+                font_size: '25sp'
+            TextInput:
+                id: crnTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_classroom()
+
+            # Section Number Label/Input
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Section Number'
+                font_size: '25sp'
+            TextInput:
+                id: sectionTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_classroom()
+
+            # Host Label/Input
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Professor or Host'
+                font_size: '25sp'
+            Spinner:
+                id: hostTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                values: root.professor_list
+
+            # Start-Time Label/Input
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'Start Time'
+                font_size: '25sp'
+            TextInput:
+                id: startTimeTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_classroom()
+
+            # End-Time Label/Input
+            Label:
+                halign: 'right'
+                valign: 'middle'
+                text_size: self.size
+                size_hint_y: None
+                height: 35
+                text: 'End Time'
+                font_size: '25sp'
+            TextInput:
+                id: endTimeTextBox
+                size_hint_y: None
+                height: 35
+                font_size: '20sp'
+                write_tab: False
+                multiline: False
+                on_text_validate: root.submit_new_classroom()
+
+        BoxLayout:
+            # Submit Button - Within BoxLayout to take up entire row
+            Button:
+                id: submitButton
+                text: "Create Class"
+                font_size: '30sp'
+                size_hint: (1, None)
+                height: 50
+                background_normal: ''
+                background_color: 1, .78, .17, 1
+                color: 0, 0, 0, 1
+                on_press: root.submit_new_classroom()

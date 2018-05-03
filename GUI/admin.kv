@@ -1,0 +1,13 @@
+#:kivy 1.10.0
+
+<HomeScreen>
+    Label:
+        text: 'BucBoard'
+        font_size: '100sp'
+        color: 1, .78, .17, 1
+        canvas.before:
+            Color:
+                rgba: 0.016, 0.118, 0.259, 1.0
+            Rectangle:
+                pos: self.pos
+                size: self.size

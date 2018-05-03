@@ -1,0 +1,62 @@
+#:kivy 1.10.0
+<Navigation>:
+    GridLayout:
+        rows: 5
+        cols: 1
+        Button:
+            text: 'Announcements'
+            on_press: root.manager.current = 'announcements'
+        Button:
+            text: 'Hours'
+            on_press: root.manager.current = 'hours'
+        Button:
+            text: 'Admin'
+            on_press: root.manager.current = 'admin'
+
+<AnnouncementsScreen>:
+    GridLayout:
+        rows: 2
+        cols: 3
+        Navigation
+        Label:
+            text: 'Announcement'
+            color: 1, 1, 1, 1
+        TextInput:
+            id: txtinput
+        Button:
+            text: 'Go to Hours'
+            on_press: root.manager.current = 'hours'
+        Button:
+            text: 'Quit'
+        Button:
+            text: 'Admin'
+            on_press: root.manager.current = 'admin'
+
+<HoursScreen>:
+    BoxLayout:
+        Button:
+            text: 'Hours'
+        Button:
+            text: 'Back to Announcements'
+            on_press: root.manager.current = 'announcements'
+        Button:
+            text: 'Admin'
+            on_press: root.manager.current = 'admin'
+
+<AdminScreen>:
+    BoxLayout:
+        Navigation
+        GridLayout:
+            rows: 5
+            cols: 3
+            Button:
+                text: 'Announcements'
+                on_press: root.manager.current = 'announcements'
+            Button:
+                text: 'Hours'
+                on_press: root.manager.current = 'hours'
+            Button:
+                text: 'Admin'
+                on_press: root.manager.current = 'admin'
+            Label:
+                text: 'Rooms'

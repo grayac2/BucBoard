@@ -1,0 +1,21 @@
+#:kivy 1.10.0
+<WeeklyWidget>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            size_hint: (1, None)
+            height: 60
+            font_size: '40sp'
+            text: "Weekly Schedule"
+            color: 0.016, 0.118, 0.259, 1.0
+            canvas.before:
+                Color:
+                    rgba: 1, .78, .17, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        GridLayout:
+            cols: 5
+            rows: 2
+            id: WeekBox
+

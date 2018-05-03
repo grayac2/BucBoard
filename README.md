@@ -1,1 +1,2 @@
-bucboard
+## BUCBOARD Project
+# By Team Disqualified
